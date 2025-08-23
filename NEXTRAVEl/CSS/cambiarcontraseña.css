@@ -1,0 +1,115 @@
+/* cambiarContraseña.css - estilo formal WhatsApp */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background: #075E54; /* Fondo base verde oscuro */
+}
+
+/* Fondo degradado tipo WhatsApp */
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #075E54, #128C7E);
+  position: relative;
+}
+
+/* Colores difuminados suaves */
+section .color {
+  position: absolute;
+  filter: blur(140px);
+}
+section .color:nth-child(1) { top: -350px; width: 600px; height: 600px; background-color: #128C7E; opacity: 0.4; }
+section .color:nth-child(2){ bottom: -150px; left: 100px; width: 500px; height: 500px; background-color: #25D366; opacity: 0.3; }
+section .color:nth-child(3){ bottom: 50px; right: 100px; width: 300px; height: 300px; background-color: #ece5dd; opacity: 0.2; }
+
+/* Caja principal */
+section .container {
+  position: relative;
+  width: 400px;
+  min-height: 350px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Formulario */
+section .container .form {
+  position: relative;
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Título */
+section .container .form h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+/* Inputs */
+section .container .form .inputBox {
+  width: 100%;
+  margin-bottom: 20px;
+}
+section .container .form .inputBox input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+section .container .form .inputBox input::placeholder {
+  color: #d9d9d9;
+}
+section .container .form .inputBox input:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Botón guardar */
+section .container .form .inputBox input[type="submit"] {
+  background: #25D366; /* Verde WhatsApp */
+  color: #fff;
+  max-width: 180px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  transition: 0.3s;
+}
+section .container .form .inputBox input[type="submit"]:hover {
+  background: #1ebe5d;
+}
+
+/* Enlace volver */
+section .container form .forget a {
+  color: #ece5dd;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+section .container form .forget a:hover {
+  color: #25D366;
+}

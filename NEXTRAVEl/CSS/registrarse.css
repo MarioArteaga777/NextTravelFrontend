@@ -1,0 +1,87 @@
+/* tienesCuenta.css estilo formal tipo WhatsApp */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh; /* que el body siempre mida toda la pantalla */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #075E54, #128C7E);
+}
+
+/* Caja principal */
+section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section .container {
+  width: 400px;
+  min-height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenido */
+section .container .form {
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+section .container .form h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+section .container .form p {
+  font-size: 14px;
+  color: #d9d9d9;
+  margin-bottom: 25px;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.buttons .btn {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  background-color: #25D366;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 0;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+.buttons .btn:hover {
+  background-color: #1ebe5d;
+}
+
+.buttons .btn.secondary {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.buttons .btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}

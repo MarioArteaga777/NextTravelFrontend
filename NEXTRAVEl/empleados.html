@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/barranavegacion.css">
+  <link rel="stylesheet" href="CSS/empleados.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <a href="#" class="header-logo">
+        <img src="IMG/d41b490f-618b-4e3b-9c25-661ad8e7c418.png" alt="logo">
+      </a>
+      <button class="toggler sidebar-toggler">
+        <span class="fa fa-chevron-left"></span>
+      </button>
+    </header>
+
+    <nav class="sidebar-nav">
+      <!-- Primer nav -->
+      <ul class="nav-list primary-nav">
+        <li class="nav-item">
+          <a href="empleados.html" class="nav-link">
+            <span class="nav-icon fa fa-user-friends"></span>
+            <span class="nav-label">Empleados</span>
+          </a>
+          <span class="nav-tooltip">Empleados</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="paquetes.html" class="nav-link">
+            <span class="nav-icon fa fa-box"></span>
+            <span class="nav-label">Administración</span>
+          </a>
+          <span class="nav-tooltip">Administración</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="cliente.html" class="nav-link">
+            <span class="nav-icon fa fa-user"></span>
+            <span class="nav-label">Clientes</span>
+          </a>
+          <span class="nav-tooltip">Clientes</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="mensajes.html" class="nav-link">
+            <span class="nav-icon fa fa-comment-alt"></span>
+            <span class="nav-label">Mensajes</span>
+          </a>
+          <span class="nav-tooltip">Mensajes</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="ganacias.html" class="nav-link">
+            <span class="nav-icon fa fa-chart-line"></span>
+            <span class="nav-label">Ganancias</span>
+          </a>
+          <span class="nav-tooltip">Ganancias</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="mantenimiento.html" class="nav-link">
+            <span class="nav-icon fa fa-tools"></span>
+            <span class="nav-label">Mantenimiento</span>
+          </a>
+          <span class="nav-tooltip">Mantenimiento</span>
+        </li>
+      </ul>
+
+      <!-- Segundo nav -->
+      <ul class="nav-list secondary-nav">
+        <li class="nav-item">
+          <a href="perfil.html" class="nav-link">
+            <span class="nav-icon fa fa-user-circle"></span>
+            <span class="nav-label">Perfil</span>
+          </a>
+          <span class="nav-tooltip">Perfil</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <span class="nav-icon fa fa-sign-out-alt"></span>
+            <span class="nav-label">Cerrar</span>
+          </a>
+          <span class="nav-tooltip">Cerrar</span>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Barra de búsqueda -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="¿Que persona estas buscando?">
+    <button class="search-button">
+      <i class="fa fa-search"></i>
+    </button>
+    <button class="custom-button">Nuevo Empleado</button>
+  </div>
+
+  <!-- Modal de Formulario -->
+  <div class="modal" id="miModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Agregar Empleado</h2>
+
+      <form>
+        <!-- Foto de perfil con subida -->
+        <div class="profile-photo">
+          <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
+        </div>
+        <div class="form-group">
+          <input type="file" id="foto" accept="image/*">
+        </div>
+
+        <!-- Nombre y Apellido -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" placeholder="Ingresa tu apellido">
+          </div>
+        </div>
+
+        <!-- Correo y Teléfono -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" placeholder="ejemplo@mail.com">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="0000-0000">
+          </div>
+        </div>
+
+        <!-- Dirección y Salario -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" placeholder="Ingrese dirección">
+          </div>
+          <div class="form-group">
+            <label for="salario">Salario</label>
+            <input type="number" id="salario" placeholder="Ingrese salario">
+          </div>
+        </div>
+
+        <!-- Estado y Rol -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="estado">Estado</label>
+            <select id="estado">
+              <option value="">Seleccione</option>
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rol">Rol</label>
+            <select id="rol">
+              <option value="">Seleccione</option>
+              <option value="admin">Admin</option>
+              <option value="Empleado">Empleado</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="form-row">
+          <button type="button" class="cancel-btn">Cancelar</button>
+          <button type="submit" class="submit-btn">Agregar</button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Contenedor principal de empleados -->
+  <div class="empleados-container">
+    <div class="empleado-card">
+      <img src="IMG/mario arteaga.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Empleado</span>
+
+      <div class="empleado-info">
+        <h3>Mario Arteaga</h3>
+      </div>
+      <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="mensaje-btn" title="Mensaje"><i class="fas fa-comment-dots"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+
+    <div class="empleado-card">
+      <img src="IMG/zelaya.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Empleado</span>
+
+      <div class="empleado-info">
+        <h3>Diego Zelaya</h3>
+      </div>
+      <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="mensaje-btn" title="Mensaje"><i class="fas fa-comment-dots"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+
+
+    <div class="empleado-card">
+  <img src="IMG/ana.jpg" alt="Empleado" class="empleado-foto">
+  <span class="card-tag">Empleado</span>
+  <div class="empleado-info"><h3>Ana López</h3></div>
+  <div class="empleado-botones">
+    <button class="info-btn"><i class="fas fa-info-circle"></i></button>
+    <button class="mensaje-btn"><i class="fas fa-comment-dots"></i></button>
+    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+  </div>
+</div>
+
+<div class="empleado-card">
+  <img src="IMG/carlos.jpg" alt="Empleado" class="empleado-foto">
+  <span class="card-tag">Empleado</span>
+  <div class="empleado-info"><h3>Carlos Martínez</h3></div>
+  <div class="empleado-botones">
+    <button class="info-btn"><i class="fas fa-info-circle"></i></button>
+    <button class="mensaje-btn"><i class="fas fa-comment-dots"></i></button>
+    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+  </div>
+</div>
+
+<div class="empleado-card">
+  <img src="IMG/sofia.jpg" alt="Empleado" class="empleado-foto">
+  <span class="card-tag">Empleado</span>
+  <div class="empleado-info"><h3>Sofía Ramírez</h3></div>
+  <div class="empleado-botones">
+    <button class="info-btn"><i class="fas fa-info-circle"></i></button>
+    <button class="mensaje-btn"><i class="fas fa-comment-dots"></i></button>
+    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+  </div>
+</div>
+
+  </div>
+
+  
+
+  <!-- Modal Confirmación Eliminar -->
+<div class="modal" id="confirmarEliminar">
+  <div class="modal-content small">
+    <h3>¿Deseas eliminar a este empleado?</h3>
+    <div class="form-row center">
+      <button class="cancel-btn" id="cancelarEliminar">Cancelar</button>
+      <button class="submit-btn" id="aceptarEliminar">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Información/Edición -->
+<div class="modal" id="infoModal">
+  <div class="modal-content">
+    <span class="close-btn" id="infoClose">&times;</span>
+    <h2>Información del Empleado</h2>
+
+    <form id="infoForm">
+      <!-- Foto -->
+      <div class="profile-photo">
+        <img id="infoFoto" src="https://via.placeholder.com/100" alt="Foto de perfil">
+        <input type="file" id="infoFotoInput" accept="image/*" style="display:none;">
+      </div>
+
+      <!-- Nombre y Apellido -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="infoNombre">Nombre</label>
+          <input type="text" id="infoNombre" disabled>
+        </div>
+        <div class="form-group">
+          <label for="infoApellido">Apellido</label>
+          <input type="text" id="infoApellido" disabled>
+        </div>
+      </div>
+
+      <!-- Correo y Teléfono -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="infoCorreo">Correo</label>
+          <input type="email" id="infoCorreo" disabled>
+        </div>
+        <div class="form-group">
+          <label for="infoTelefono">Teléfono</label>
+          <input type="tel" id="infoTelefono" disabled>
+        </div>
+      </div>
+
+      <!-- Dirección y Salario -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="infoDireccion">Dirección</label>
+          <input type="text" id="infoDireccion" disabled>
+        </div>
+        <div class="form-group">
+          <label for="infoSalario">Salario</label>
+          <input type="number" id="infoSalario" disabled>
+        </div>
+      </div>
+
+      <!-- Estado y Rol -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="infoEstado">Estado</label>
+          <select id="infoEstado" disabled>
+            <option value="">Seleccione</option>
+            <option value="activo">Activo</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="infoRol">Rol</label>
+          <select id="infoRol" disabled>
+            <option value="">Seleccione</option>
+            <option value="admin">Admin</option>
+            <option value="Empleado">Empleado</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Botones -->
+      <div class="form-row" id="infoButtons">
+        <button type="button" class="submit-btn" id="editarBtn">Editar</button>
+        <button type="button" class="cancel-btn" id="cancelarInfoBtn">Cancelar</button>
+      </div>
+
+      <div class="form-row" id="guardarButtons" style="display:none;">
+        <button type="button" class="submit-btn" id="guardarBtn">Guardar Cambios</button>
+        <button type="button" class="cancel-btn" id="cancelarEditBtn">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+  <!-- Script -->
+  <script src="JS/empleados.js"></script>
+  <script src="js/barranavegacion.js"></script>
+</body>
+</html>

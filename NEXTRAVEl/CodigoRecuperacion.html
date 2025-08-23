@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingresar Código</title>
+  <link rel="stylesheet" href="CSS/codigoRecuperacion.css">
+</head>
+<body>
+
+  <section>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+
+    <div class="box">
+      <div class="square" style="--i:0"></div>
+      <div class="square" style="--i:1"></div>
+      <div class="square" style="--i:2"></div>
+      <div class="square" style="--i:3"></div>
+      <div class="square" style="--i:4"></div>
+
+      <div class="container">
+        <div class="form">
+          <h2>Ingresa el Código</h2>
+          <p>Te enviamos un código de seguridad a tu correo</p>
+          <form action="cambiarcontraseña.html" method="POST" class="code-form">
+            <div class="code-inputs">
+              <input type="text" maxlength="1" required>
+              <input type="text" maxlength="1" required>
+              <input type="text" maxlength="1" required>
+              <input type="text" maxlength="1" required>
+              <input type="text" maxlength="1" required>
+            </div>
+            <div class="inputBox">
+              <input type="submit" value="Confirmar">
+            </div>
+            <p class="forget"><a href="olvidarContraseña.html">← Volver</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Auto-focus en el siguiente input
+    const inputs = document.querySelectorAll('.code-inputs input');
+    inputs.forEach((input, index) => {
+      input.addEventListener('input', () => {
+        if (input.value.length > 0 && index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && input.value === '' && index > 0) {
+          inputs[index - 1].focus();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

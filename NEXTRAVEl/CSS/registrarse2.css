@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    background-color: #075E54;
+}
+
+/* Fondo degradado */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #075E54, #128C7E);
+}
+
+/* Caja principal */
+section .container {
+    width: 400px;
+    min-height: 450px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Formulario */
+section .container .form {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Cada inputBox separado */
+section .container .form .inputBox {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Inputs y select */
+section .container .form .inputBox input,
+section .container .form .inputBox select {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transition: 0.3s;
+}
+
+section .container .form .inputBox input::placeholder {
+    color: #d9d9d9;
+}
+
+section .container .form .inputBox input:focus,
+section .container .form .inputBox select:focus {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+section .container .form .inputBox select {
+    appearance: none; /* quita flecha por defecto */
+    cursor: pointer;
+}
+
+section .container .form .inputBox select option {
+    color: #000; /* texto dentro del dropdown */
+}
+
+/* Botón registrarse */
+section .container .form .inputBox input[type="submit"] {
+    background: #25D366;
+    color: #fff;
+    max-width: 180px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    align-self: center;
+}
+
+section .container .form .inputBox input[type="submit"]:hover {
+    background: #1ebe5d;
+}
+
+/* Enlaces */
+section .container .form .forget a {
+    color: #ece5dd;
+    font-weight: 500;
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+section .container .form .forget a:hover {
+    color: #25D366;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    section .container {
+        width: 90%;
+        padding: 30px 15px;
+    }
+    section .container .form h2 {
+        font-size: 22px;
+    }
+    section .container .form .inputBox input,
+    section .container .form .inputBox select {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="CSS/registrarse2.css">
+</head>
+<body>
+
+  <section>
+    <div class="container">
+      <div class="form">
+        <h2>Registrarse</h2>
+        <form action="dashboard.html" method="POST">
+          <!-- Usuario -->
+          <div class="inputBox">
+            <input type="text" placeholder="Nombre del usuario" required>
+          </div>
+          <!-- Correo electrónico -->
+          <div class="inputBox">
+            <input type="email" placeholder="Correo electrónico" required>
+          </div>
+          <!-- Contraseña -->
+          <div class="inputBox">
+            <input type="password" placeholder="Contraseña" required>
+          </div>
+          <!-- Confirmar contraseña -->
+          <div class="inputBox">
+            <input type="password" placeholder="Confirmar contraseña" required>
+          </div>
+          <!-- Tipo de cuenta -->
+          <div class="inputBox">
+            <select required>
+              <option value="" disabled selected>Tipo de cuenta</option>
+              <option value="administrador">Administrador</option>
+              <option value="empleado">Empleado</option>
+            </select>
+          </div>
+          <!-- Botón registrarse -->
+          <div class="inputBox">
+            <input type="submit" value="Registrarse">
+          </div>
+          <!-- Enlace a login -->
+          <p class="forget"><a href="login.html">¿Ya tienes cuenta? Iniciar Sesión</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
