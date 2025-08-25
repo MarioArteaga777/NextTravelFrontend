@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Empleados</title>
   <link rel="stylesheet" href="css/barranavegacion.css">
-  <link rel="stylesheet" href="CSS/empleados.css">
+  <link rel="stylesheet" href="css/empleados.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -22,7 +21,6 @@
     </header>
 
     <nav class="sidebar-nav">
-      <!-- Primer nav -->
       <ul class="nav-list primary-nav">
         <li class="nav-item">
           <a href="empleados.html" class="nav-link">
@@ -31,7 +29,6 @@
           </a>
           <span class="nav-tooltip">Empleados</span>
         </li>
-
         <li class="nav-item">
           <a href="paquetes.html" class="nav-link">
             <span class="nav-icon fa fa-box"></span>
@@ -39,7 +36,6 @@
           </a>
           <span class="nav-tooltip">Administración</span>
         </li>
-
         <li class="nav-item">
           <a href="cliente.html" class="nav-link">
             <span class="nav-icon fa fa-user"></span>
@@ -47,7 +43,6 @@
           </a>
           <span class="nav-tooltip">Clientes</span>
         </li>
-
         <li class="nav-item">
           <a href="mensajes.html" class="nav-link">
             <span class="nav-icon fa fa-comment-alt"></span>
@@ -55,19 +50,6 @@
           </a>
           <span class="nav-tooltip">Mensajes</span>
         </li>
-
-         <!--
-        
-          <li class="nav-item">
-          <a href="ganacias.html" class="nav-link">
-            <span class="nav-icon fa fa-chart-line"></span>
-            <span class="nav-label">Ganancias</span>
-          </a>
-          <span class="nav-tooltip">Ganancias</span>
-        </li>
-        
-        -->
-
         <li class="nav-item">
           <a href="mantenimiento.html" class="nav-link">
             <span class="nav-icon fa fa-tools"></span>
@@ -77,7 +59,6 @@
         </li>
       </ul>
 
-      <!-- Segundo nav -->
       <ul class="nav-list secondary-nav">
         <li class="nav-item">
           <a href="perfil.html" class="nav-link">
@@ -86,7 +67,6 @@
           </a>
           <span class="nav-tooltip">Perfil</span>
         </li>
-
         <li class="nav-item">
           <a href="index.html" class="nav-link">
             <span class="nav-icon fa fa-sign-out-alt"></span>
@@ -100,272 +80,140 @@
 
   <!-- Barra de búsqueda -->
   <div class="search-container">
-    <input type="text" id="searchInput" placeholder="¿Que persona estas buscando?">
-    <button class="search-button">
-      <i class="fa fa-search"></i>
-    </button>
+    <input type="text" id="searchInput" placeholder="¿Qué persona estás buscando?">
+    <button class="search-button"><i class="fa fa-search"></i></button>
     <button class="custom-button">Nuevo Empleado</button>
   </div>
 
-  <!-- Modal de Formulario -->
+  <!-- Modal Agregar -->
   <div class="modal" id="miModal">
     <div class="modal-content">
       <span class="close-btn">&times;</span>
       <h2>Agregar Empleado</h2>
-
       <form>
-      <!-- Foto de perfil con subida -->
-      <div class="profile-photo">
-        <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
-        <input type="file" id="foto" accept="image/*" style="display:none;">
-      </div>
-
-
-        <!-- Nombre y Apellido -->
+        <div class="profile-photo">
+          <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
+          <input type="file" id="foto" accept="image/*" style="display:none;">
+        </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+          <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" placeholder="Ingresa tu nombre"></div>
+          <div class="form-group"><label for="apellido">Apellido</label><input type="text" id="apellido" placeholder="Ingresa tu apellido"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="correo">Correo</label><input type="email" id="correo" placeholder="ejemplo@mail.com"></div>
+          <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" placeholder="0000-0000"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="direccion">Dirección</label><input type="text" id="direccion" placeholder="Ingrese dirección"></div>
+          <div class="form-group"><label for="salario">Salario</label><input type="number" id="salario" placeholder="Ingrese salario"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="estado">Estado</label>
+            <select id="estado"><option value="activo">Activo</option><option value="inactivo">Inactivo</option></select>
           </div>
-          <div class="form-group">
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" placeholder="Ingresa tu apellido">
+          <div class="form-group"><label for="rol">Rol</label>
+            <select id="rol"><option value="">Seleccione</option><option value="admin">Admin</option><option value="Empleado">Empleado</option></select>
           </div>
         </div>
-
-        <!-- Correo y Teléfono -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="correo">Correo</label>
-            <input type="email" id="correo" placeholder="ejemplo@mail.com">
-          </div>
-          <div class="form-group">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" placeholder="0000-0000">
-          </div>
-        </div>
-
-        <!-- Dirección y Salario -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" placeholder="Ingrese dirección">
-          </div>
-          <div class="form-group">
-            <label for="salario">Salario</label>
-            <input type="number" id="salario" placeholder="Ingrese salario">
-          </div>
-        </div>
-
-        <!-- Estado y Rol -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="estado">Estado</label>
-            <select id="estado">
-              <option value="activo">Activo</option>
-              <option value="inactivo">Inactivo</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="rol">Rol</label>
-            <select id="rol">
-              <option value="">Seleccione</option>
-              <option value="admin">Admin</option>
-              <option value="Empleado">Empleado</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Botones -->
         <div class="form-row">
           <button type="button" class="cancel-btn">Cancelar</button>
           <button type="submit" class="submit-btn" id="AgregarBtn">Agregar</button>
         </div>
-
-
       </form>
     </div>
   </div>
 
-  <!-- Contenedor principal de empleados -->
-  <div class="empleados-container">
-    <div class="empleado-card">
-      <img src="IMG/mario arteaga.jpg" alt="Empleado" class="empleado-foto">
-          <span class="card-tag">Empleado</span>
-
-      <div class="empleado-info">
-        <h3>Mario Arteaga</h3>
-      </div>
-      <div class="empleado-botones">
-        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-        <button class="mensaje-btn" title="Mensaje"><i class="fas fa-comment-dots"></i></button>
-        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+  <!-- Modal Confirmar Eliminar -->
+  <div class="modal" id="confirmarEliminar">
+    <div class="modal-content small">
+      <h3>¿Deseas eliminar a este empleado?</h3>
+      <div class="form-row center">
+        <button class="cancel-btn" id="cancelarEliminar">Cancelar</button>
+        <button class="submit-btn" id="aceptarEliminar">Aceptar</button>
       </div>
     </div>
-
-    <div class="empleado-card">
-      <img src="IMG/zelaya.jpg" alt="Empleado" class="empleado-foto">
-          <span class="card-tag">Empleado</span>
-
-      <div class="empleado-info">
-        <h3>Diego Zelaya</h3>
-      </div>
-      <div class="empleado-botones">
-        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-        <button class="mensaje-btn" title="Mensaje"><i class="fas fa-comment-dots"></i></button>
-        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
-      </div>
-    </div>
-
-
-    <div class="empleado-card">
-  <img src="IMG/ana.jpg" alt="Empleado" class="empleado-foto">
-  <span class="card-tag">Empleado</span>
-  <div class="empleado-info"><h3>Ana López</h3></div>
-  <div class="empleado-botones">
-    <button class="info-btn"><i class="fas fa-info-circle"></i></button>
-    <button class="mensaje-btn"><i class="fas fa-comment-dots"></i></button>
-    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
-  </div>
-</div>
-
-<div class="empleado-card">
-  <img src="IMG/carlos.jpg" alt="Empleado" class="empleado-foto">
-  <span class="card-tag">Empleado</span>
-  <div class="empleado-info"><h3>Carlos Martínez</h3></div>
-  <div class="empleado-botones">
-    <button class="info-btn"><i class="fas fa-info-circle"></i></button>
-    <button class="mensaje-btn"><i class="fas fa-comment-dots"></i></button>
-    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
-  </div>
-</div>
-
-<div class="empleado-card">
-  <img src="IMG/sofia.jpg" alt="Empleado" class="empleado-foto">
-  <span class="card-tag">Empleado</span>
-  <div class="empleado-info"><h3>Sofía Ramírez</h3></div>
-  <div class="empleado-botones">
-    <button class="info-btn"><i class="fas fa-info-circle"></i></button>
-    <button class="mensaje-btn"><i class="fas fa-comment-dots"></i></button>
-    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
-  </div>
-</div>
-
   </div>
 
-  
-
-  <!-- Modal Confirmación Eliminar -->
-<div class="modal" id="confirmarEliminar">
-  <div class="modal-content small">
-    <h3>¿Deseas eliminar a este empleado?</h3>
-    <div class="form-row center">
-      <button class="cancel-btn" id="cancelarEliminar">Cancelar</button>
-      <button class="submit-btn" id="aceptarEliminar">Aceptar</button>
+  <!-- Modal Info/Editar -->
+  <div class="modal" id="infoModal">
+    <div class="modal-content">
+      <span class="close-btn" id="infoClose">&times;</span>
+      <h2>Información del Empleado</h2>
+      <form id="infoForm">
+        <div class="profile-photo">
+          <img id="infoFoto" src="https://via.placeholder.com/100" alt="Foto de perfil">
+          <input type="file" id="infoFotoInput" accept="image/*" style="display:none;">
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="infoNombre">Nombre</label><input type="text" id="infoNombre" disabled></div>
+          <div class="form-group"><label for="infoApellido">Apellido</label><input type="text" id="infoApellido" disabled></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="infoCorreo">Correo</label><input type="email" id="infoCorreo" disabled></div>
+          <div class="form-group"><label for="infoTelefono">Teléfono</label><input type="tel" id="infoTelefono" disabled></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="infoDireccion">Dirección</label><input type="text" id="infoDireccion" disabled></div>
+          <div class="form-group"><label for="infoSalario">Salario</label><input type="number" id="infoSalario" disabled></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="infoEstado">Estado</label>
+            <select id="infoEstado" disabled>
+              <option value="">Seleccione</option><option value="activo">Activo</option><option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="infoRol">Rol</label>
+            <select id="infoRol" disabled>
+              <option value="">Seleccione</option><option value="admin">Admin</option><option value="Empleado">Empleado</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" id="infoButtons">
+          <button type="button" class="submit-btn" id="editarBtn">Editar</button>
+          <button type="button" class="cancel-btn" id="cancelarInfoBtn">Cancelar</button>
+        </div>
+        <div class="form-row" id="guardarButtons" style="display:none;">
+          <button type="button" class="submit-btn" id="guardarBtn">Guardar Cambios</button>
+          <button type="button" class="cancel-btn" id="cancelarEditBtn">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
-</div>
 
-<!-- Modal de Información/Edición -->
-<div class="modal" id="infoModal">
-  <div class="modal-content">
-    <span class="close-btn" id="infoClose">&times;</span>
-    <h2>Información del Empleado</h2>
-
-    <form id="infoForm">
-      <!-- Foto -->
-      <div class="profile-photo">
-        <img id="infoFoto" src="https://via.placeholder.com/100" alt="Foto de perfil">
-        <input type="file" id="infoFotoInput" accept="image/*" style="display:none;">
-      </div>
-
-      <!-- Nombre y Apellido -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="infoNombre">Nombre</label>
-          <input type="text" id="infoNombre" disabled>
-        </div>
-        <div class="form-group">
-          <label for="infoApellido">Apellido</label>
-          <input type="text" id="infoApellido" disabled>
-        </div>
-      </div>
-
-      <!-- Correo y Teléfono -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="infoCorreo">Correo</label>
-          <input type="email" id="infoCorreo" disabled>
-        </div>
-        <div class="form-group">
-          <label for="infoTelefono">Teléfono</label>
-          <input type="tel" id="infoTelefono" disabled>
-        </div>
-      </div>
-
-      <!-- Dirección y Salario -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="infoDireccion">Dirección</label>
-          <input type="text" id="infoDireccion" disabled>
-        </div>
-        <div class="form-group">
-          <label for="infoSalario">Salario</label>
-          <input type="number" id="infoSalario" disabled>
-        </div>
-      </div>
-
-      <!-- Estado y Rol -->
-      <div class="form-row">
-        <div class="form-group">
-          <label for="infoEstado">Estado</label>
-          <select id="infoEstado" disabled>
-            <option value="">Seleccione</option>
-            <option value="activo">Activo</option>
-            <option value="inactivo">Inactivo</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="infoRol">Rol</label>
-          <select id="infoRol" disabled>
-            <option value="">Seleccione</option>
-            <option value="admin">Admin</option>
-            <option value="Empleado">Empleado</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Botones -->
-      <div class="form-row" id="infoButtons">
-        <button type="button" class="submit-btn" id="editarBtn">Editar</button>
-        <button type="button" class="cancel-btn" id="cancelarInfoBtn">Cancelar</button>
-      </div>
-
-      <div class="form-row" id="guardarButtons" style="display:none;">
-        <button type="button" class="submit-btn" id="guardarBtn">Guardar Cambios</button>
-        <button type="button" class="cancel-btn" id="cancelarEditBtn">Cancelar</button>
-      </div>
-    </form>
+  <!-- Tabla de empleados -->
+  <div class="empleados-table-container">
+    <table class="empleados-table">
+      <thead>
+        <tr>
+          <th>Foto</th><th>Nombre</th><th>Apellido</th><th>Correo</th>
+          <th>Teléfono</th><th>Dirección</th><th>Salario</th><th>Estado</th><th>Rol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="IMG/mario arteaga.jpg" class="tabla-foto"></td>
+          <td>Mario</td><td>Arteaga</td><td>mario@mail.com</td>
+          <td>0000-0000</td><td>Calle Falsa 123</td><td>$500</td>
+          <td>Activo</td><td>Empleado</td>
+        </tr>
+        <tr>
+          <td><img src="IMG/zelaya.jpg" class="tabla-foto"></td>
+          <td>Diego</td><td>Zelaya</td><td>diego@mail.com</td>
+          <td>1111-1111</td><td>Avenida Siempre Viva 456</td><td>$600</td>
+          <td>Activo</td><td>Empleado</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>
 
-<!--Modal cerrar sesion-->
-<div class="modal" id="logoutModal">
-  <div class="modal-content">
-    <h3>¿Seguro que deseas cerrar sesión?</h3>
-    <p>Se cerrará tu sesión actual y deberás volver a iniciar.</p>
-    <div class="form-row">
-      <button class="cancel-btn" id="cancelarLogout">Cancelar</button>
-      <button class="delete-btn" id="confirmarLogout">Cerrar sesión</button>
-    </div>
+  <!-- Mini contenedor de acciones -->
+  <div id="miniAcciones" style="display:none; position:absolute; z-index:1000;">
+    <button id="miniEditar" class="info-btn">Editar</button>
+    <button id="miniEliminar" class="eliminar-btn">Eliminar</button>
   </div>
-</div>
 
-
-
-
-  <!-- Script -->
-  <script src="JS/empleados.js"></script>
+  <!-- Scripts -->
+  <script src="js/empleados.js"></script>
   <script src="js/barranavegacion.js"></script>
 </body>
 </html>

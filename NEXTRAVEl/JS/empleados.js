@@ -1,100 +1,35 @@
-// ======================= MODAL AGREGAR EMPLEADO =======================
-const modal = document.getElementById("miModal");
-const openBtn = document.querySelector(".custom-button");
-const closeBtn = modal.querySelector(".close-btn");
-const cancelBtn = modal.querySelector(".cancel-btn");
-const fotoInput = document.getElementById("foto");
+// ======================= MODALES =======================
+const modalAgregar = document.getElementById("miModal");
+const modalEliminar = document.getElementById("confirmarEliminar");
+const modalInfo = document.getElementById("infoModal");
+
+// Abrir modal agregar
+document.querySelector(".custom-button").addEventListener("click", () => modalAgregar.style.display = "flex");
+
+// Cerrar todos los modales
+document.querySelectorAll(".modal .close-btn, .modal .cancel-btn").forEach(btn => {
+    btn.addEventListener("click", () => btn.closest(".modal").style.display = "none");
+});
+window.addEventListener("click", e => {
+    if(e.target.classList.contains("modal")) e.target.style.display = "none";
+});
+
+// ======================= VISTA PREVIA DE FOTO =======================
 const preview = document.getElementById("preview");
-
-// Abrir y cerrar modal agregar
-openBtn.addEventListener("click", () => modal.style.display = "flex");
-closeBtn.addEventListener("click", () => modal.style.display = "none");
-cancelBtn.addEventListener("click", () => modal.style.display = "none");
-window.addEventListener("click", (e) => { if(e.target===modal) modal.style.display="none"; });
-
-// Vista previa de foto agregar (funciona, pero no guarda cambios)
-fotoInput.addEventListener("change", () => {
-    const file = fotoInput.files[0];
+document.getElementById("foto").addEventListener("change", e => {
+    const file = e.target.files[0];
     if(file){
         const reader = new FileReader();
-        reader.onload = e => preview.src = e.target.result;
+        reader.onload = ev => preview.src = ev.target.result;
         reader.readAsDataURL(file);
     }
 });
+document.getElementById("preview").addEventListener("click", () => document.getElementById("foto").click());
 
-// Evitar que el botón "Agregar" haga algo
-const agregarBtn = document.getElementById("AgregarBtn");
-if(agregarBtn) agregarBtn.addEventListener("click", e => e.preventDefault());
-
-// ======================= MODAL ELIMINAR =======================
-const eliminarBtns = document.querySelectorAll(".eliminar-btn");
-const modalEliminar = document.getElementById("confirmarEliminar");
-const cancelarEliminar = document.getElementById("cancelarEliminar");
-
-// Abrir y cerrar modal eliminar
-eliminarBtns.forEach(btn => btn.addEventListener("click", () => modalEliminar.style.display = "flex"));
-cancelarEliminar.addEventListener("click", () => modalEliminar.style.display = "none");
-window.addEventListener("click", (e) => { if(e.target===modalEliminar) modalEliminar.style.display="none"; });
-
-// ======================= MODAL INFORMACION / EDICION =======================
-const infoModal = document.getElementById('infoModal');
-const infoClose = document.getElementById('infoClose');
-const editarBtn = document.getElementById('editarBtn');
-const cancelarEditBtn = document.getElementById('cancelarEditBtn');
-const guardarBtn = document.getElementById('guardarBtn');
-const infoButtons = document.getElementById('infoButtons');
-const guardarButtons = document.getElementById('guardarButtons');
-const infoForm = document.getElementById('infoForm');
-const infoNombre = document.getElementById('infoNombre');
-const infoApellido = document.getElementById('infoApellido');
-const infoFoto = document.getElementById('infoFoto');
-const infoFotoInput = document.getElementById('infoFotoInput');
-const cancelarInfoBtn = document.getElementById('cancelarInfoBtn');
-
-let currentCard = null;
-
-// Abrir y cerrar modal info
-infoClose.addEventListener('click', () => infoModal.style.display = 'none');
-cancelarInfoBtn.addEventListener('click', () => infoModal.style.display = 'none');
-
-// Abrir info modal y mostrar foto y nombre
-document.querySelectorAll('.info-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        currentCard = btn.closest('.empleado-card');
-        const nombre = currentCard.querySelector('.empleado-info h3').textContent;
-        const foto = currentCard.querySelector('.empleado-foto').src;
-        infoNombre.value = nombre.split(' ')[0];
-        infoApellido.value = nombre.split(' ')[1] || '';
-        infoFoto.src = foto;
-        infoButtons.style.display = 'flex';
-        guardarButtons.style.display = 'none';
-        Array.from(infoForm.elements).forEach(el => { if(el.tagName !== 'BUTTON') el.disabled = true; });
-        infoModal.style.display = 'flex';
-    });
-});
-
-// EDITAR no hace cambios reales, solo muestra "Guardar Cambios"
-editarBtn.addEventListener('click', () => {
-    infoButtons.style.display = 'none';
-    guardarButtons.style.display = 'flex';
-});
-
-// Cancelar edición solo cierra modal y resetea campos
-cancelarEditBtn.addEventListener('click', () => {
-    if(currentCard){
-        const nombre = currentCard.querySelector('.empleado-info h3').textContent;
-        const foto = currentCard.querySelector('.empleado-foto').src;
-        infoNombre.value = nombre.split(' ')[0];
-        infoApellido.value = nombre.split(' ')[1] || '';
-        infoFoto.src = foto;
-    }
-    infoButtons.style.display = 'flex';
-    guardarButtons.style.display = 'none';
-});
-
-// Vista previa foto info
-infoFoto.addEventListener('click', () => infoFotoInput.click());
-infoFotoInput.addEventListener('change', e => {
+const infoFoto = document.getElementById("infoFoto");
+const infoFotoInput = document.getElementById("infoFotoInput");
+infoFoto.addEventListener("click", () => infoFotoInput.click());
+infoFotoInput.addEventListener("change", e => {
     const file = e.target.files[0];
     if(file){
         const reader = new FileReader();
@@ -103,12 +38,80 @@ infoFotoInput.addEventListener('change', e => {
     }
 });
 
-// Guardar cambios NO hace nada
-guardarBtn.addEventListener('click', e => e.preventDefault());
+// ======================= TABLA EMPLEADOS =======================
+document.querySelectorAll(".empleados-table tbody tr").forEach(row => {
+    // Crear celda de acciones si no existe
+    let accionesCell = row.querySelector(".acciones");
+    if(!accionesCell){
+        accionesCell = document.createElement("td");
+        accionesCell.classList.add("acciones");
+        row.appendChild(accionesCell);
 
-// Botón de mensaje redirige a mensajes.html
-document.querySelectorAll('.mensaje-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        window.location.href = 'mensajes.html';
+        const btnEditar = document.createElement("button");
+        btnEditar.textContent = "Editar";
+        btnEditar.classList.add("editar-btn");
+        accionesCell.appendChild(btnEditar);
+
+        const btnEliminar = document.createElement("button");
+        btnEliminar.textContent = "Eliminar";
+        btnEliminar.classList.add("eliminar-btn");
+        accionesCell.appendChild(btnEliminar);
+
+        accionesCell.style.display = "none";
+
+        // Editar
+        btnEditar.addEventListener("click", e => {
+            e.stopPropagation();
+            modalInfo.style.display = "flex";
+            document.getElementById("infoNombre").value = row.cells[1].textContent;
+            document.getElementById("infoApellido").value = row.cells[2].textContent;
+            document.getElementById("infoCorreo").value = row.cells[3].textContent;
+            document.getElementById("infoTelefono").value = row.cells[4].textContent;
+            document.getElementById("infoDireccion").value = row.cells[5].textContent;
+            document.getElementById("infoSalario").value = row.cells[6].textContent.replace("$","");
+            infoFoto.src = row.cells[0].querySelector("img").src;
+
+            // Deshabilitar inputs al abrir
+            Array.from(document.getElementById("infoForm").elements)
+                 .forEach(el => { if(el.tagName!=="BUTTON") el.disabled = true; });
+            document.getElementById("infoButtons").style.display = "flex";
+            document.getElementById("guardarButtons").style.display = "none";
+        });
+
+        // Eliminar
+        btnEliminar.addEventListener("click", e => {
+            e.stopPropagation();
+            modalEliminar.style.display = "flex";
+            document.getElementById("aceptarEliminar").onclick = () => {
+                row.remove();
+                modalEliminar.style.display = "none";
+            };
+        });
+    }
+
+    // Mostrar/ocultar acciones al click
+    row.addEventListener("click", () => {
+        document.querySelectorAll(".acciones").forEach(c => c.style.display="none");
+        accionesCell.style.display = "block";
     });
+});
+
+// ======================= EDITAR EN MODAL INFO =======================
+const editarBtn = document.getElementById("editarBtn");
+const cancelarEditBtn = document.getElementById("cancelarEditBtn");
+const guardarBtn = document.getElementById("guardarBtn");
+const infoButtons = document.getElementById("infoButtons");
+const guardarButtons = document.getElementById("guardarButtons");
+const infoForm = document.getElementById("infoForm");
+
+editarBtn.addEventListener("click", () => {
+    infoButtons.style.display = "none";
+    guardarButtons.style.display = "flex";
+    Array.from(infoForm.elements).forEach(el => el.disabled = false);
+});
+
+cancelarEditBtn.addEventListener("click", () => {
+    infoButtons.style.display = "flex";
+    guardarButtons.style.display = "none";
+    Array.from(infoForm.elements).forEach(el => { if(el.tagName!=="BUTTON") el.disabled = true; });
 });

@@ -1,6 +1,4 @@
-/* =========================================================
-   🔎 BUSCADOR
-   ========================================================= */
+/* BUSCADOR */
 .search-container {
     position: fixed;
     top: 40px;
@@ -16,7 +14,6 @@
     max-width: 800px;
 }
 
-/* Input de búsqueda */
 .search-container input {
     flex: 1;
     padding: 12px 15px;
@@ -31,7 +28,6 @@
     color: rgba(255,255,255,0.8);
 }
 
-/* Botón de búsqueda (lupa) */
 .search-button {
     background: #238fa2;
     border: none;
@@ -48,10 +44,7 @@
     background: #175971;
 }
 
-
-/* =========================================================
-   ➕ BOTÓN "NUEVO EMPLEADO"
-   ========================================================= */
+/* BOTÓN NUEVO EMPLEADO */
 .custom-button {
     position: fixed;
     top: 95px;
@@ -72,10 +65,7 @@
     transform: scale(1.05);
 }
 
-
-/* =========================================================
-   🪟 MODALES
-   ========================================================= */
+/* MODALES */
 .modal {
     display: none;
     position: fixed;
@@ -87,7 +77,6 @@
     justify-content: center;
 }
 
-/* Contenido del modal */
 .modal-content {
     background: rgba(54, 118, 125, 0.85);
     padding: 40px;
@@ -105,7 +94,6 @@
     margin-bottom: 20px;
 }
 
-/* Modal más pequeño */
 .modal-content.small {
     width: 400px;
     padding: 30px;
@@ -118,7 +106,6 @@
     font-weight: 600;
 }
 
-/* Botón cerrar modal */
 .close-btn {
     position: absolute;
     top: 12px;
@@ -133,100 +120,7 @@
     color: #ffb3b3;
 }
 
-/* Botón de confirmar eliminación */
-#confirmarEliminar .submit-btn {
-    background: #c0392b;
-    color: #fff;
-    padding: 10px 25px;
-    font-size: 15px;
-    font-weight: 600;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#confirmarEliminar .submit-btn:hover {
-    background: #a93226;
-}
-
-
-/* =========================================================
-   📋 FORMULARIOS
-   ========================================================= */
-
-/* Foto de perfil en formularios */
-#infoFoto,
-#preview {
-    width: 100%;
-    max-width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.7);
-    display: block;
-    margin: 0 auto 20px auto;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-#infoFoto:hover,
-#preview:hover {
-    transform: scale(1.05);
-}
-
-.form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.form-row:last-child {
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-/* Alineación centrada de botones en formulario */
-.form-row.center {
-    justify-content: center;
-    gap: 20px;
-}
-
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    margin-bottom: 6px;
-    font-weight: 500;
-}
-
-#foto {
-    display: block;
-    margin: 0 auto 20px auto;
-    color: #fff;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 12px;
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    background: rgba(255,255,255,0.2);
-    color: #fff;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255,255,255,0.7);
-}
-
-/* Botones del formulario */
+/* Botones del modal */
 .submit-btn,
 .cancel-btn {
     flex: 0 0 auto;
@@ -239,158 +133,78 @@
     transition: 0.3s;
 }
 
-.submit-btn {
-    background: #105e95;
-    color: #fff;
+.submit-btn { background: #105e95; color:#fff;}
+.submit-btn:hover { background:#134377;}
+.cancel-btn { background: rgba(255,255,255,0.3); color:#fff;}
+.cancel-btn:hover { background: rgba(255,255,255,0.5);}
+#confirmarEliminar .submit-btn { background: #c0392b;}
+#confirmarEliminar .submit-btn:hover { background: #a93226;}
+
+/* FORMULARIOS */
+.profile-photo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.7);
+    margin: 0 auto 20px auto;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
+.profile-photo img:hover { transform: scale(1.05); }
 
-.submit-btn:hover {
-    background: #134377;
+.form-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.form-row:last-child { justify-content: flex-end; gap:10px; }
+.form-row.center { justify-content: center; gap: 20px; }
+.form-group { flex:1; display:flex; flex-direction:column; }
+.form-group label { margin-bottom:6px; font-weight:500; }
+.form-group input, .form-group select, .form-group textarea {
+    padding:12px; border-radius:15px; border:none; outline:none; font-size:14px;
+    background: rgba(255,255,255,0.2); color:#fff;
 }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.7); }
 
-.cancel-btn {
-    background: rgba(255,255,255,0.3);
-    color: #fff;
-}
+/* ANIMACIONES */
+@keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
 
-.cancel-btn:hover {
-    background: rgba(255,255,255,0.5);
-}
-
-
-/* =========================================================
-   ✨ ANIMACIONES
-   ========================================================= */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to   { opacity: 1; transform: scale(1); }
-}
-
-
-/* =========================================================
-   👨‍💼 CONTENEDOR DE EMPLEADOS
-   ========================================================= */
-.empleados-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 35px;
-    padding: 20px 40px 40px 40px;
-    margin-left: 330px;
-    margin-top: 200px;
-    max-height: calc(100vh - 160px);
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
-
-/* Scroll personalizado */
-.empleados-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.empleados-container::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.3);
-    border-radius: 4px;
-}
-
-.empleados-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-
-/* =========================================================
-   🃏 TARJETA DE EMPLEADO
-   ========================================================= */
-.empleado-card {
-    flex: 0 0 calc((100% - 70px) / 3); /* 3 tarjetas por fila */
-    min-width: 300px;
+/* TABLA EMPLEADOS */
+.empleados-table-container {
     background: linear-gradient(145deg, #67a6b4, #2f5858);
     border-radius: 50px;
-    padding: 35px;
-    color: #fff;
-    text-align: center;
+    padding: 30px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    color: #fff;
+    overflow-x:auto;
+    margin-left: 300px;
+    margin-top: 200px;
+}
+
+.empleados-table { width:100%; border-collapse: separate; border-spacing:0; text-align:center;}
+.empleados-table th, .empleados-table td { padding:12px 15px; border-bottom:1px solid rgba(255,255,255,0.3); font-size:14px;}
+.empleados-table th { background: rgba(255,255,255,0.1); font-weight:600; border-radius:30px 30px 0 0;}
+.empleados-table tr:hover { background: rgba(255,255,255,0.1); }
+.tabla-foto { width:50px; height:50px; object-fit:cover; border-radius:50%; border:2px solid rgba(255,255,255,0.7); }
+
+/* MINI ACCIONES FLOTANTES */
+#miniAcciones {
+    background: rgba(54,118,125,0.95);
+    padding: 8px 12px;
+    border-radius: 15px;
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-    transition: 0.3s ease;
+    gap: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-.empleado-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+#miniAcciones button {
+    padding: 5px 10px;
+    font-size: 13px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-/* Foto del empleado */
-.empleado-foto {
-    width: 100%;
-    height: 200px;
-    border-radius: 20px;
-    object-fit: cover;
-    border: 3px solid rgba(255,255,255,0.7);
-}
-
-/* Información del empleado */
-.empleado-info h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-}
-
-/* Botonera de la tarjeta */
-.empleado-botones {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: auto;
-}
-
-/* Botones de acciones */
-.info-btn,
-.eliminar-btn,
-.mensaje-btn {
-    border: none;
-    padding: 8px 18px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* Botón info */
-.info-btn {
-    background: #2eccc7;
-    color: #fff;
-}
-
-.info-btn:hover {
-    background: #2793ae;
-    transform: scale(1.05);
-}
-
-/* Botón eliminar */
-.eliminar-btn {
-    background: #e74c3c;
-    color: #fff;
-}
-
-.eliminar-btn:hover {
-    background: #c0392b;
-    transform: scale(1.05);
-}
-
-/* Botón mensaje */
-.mensaje-btn {
-    background: #168a39;
-    color: #fff;
-}
-
-.mensaje-btn:hover {
-    background: #1a8461;
-    transform: scale(1.05);
-}
+#miniEditar { background:#2980b9; color:#fff;}
+#miniEliminar { background:#c0392b; color:#fff;}
+#miniEditar:hover { background:#1f618d; }
+#miniEliminar:hover { background:#922b21; }
