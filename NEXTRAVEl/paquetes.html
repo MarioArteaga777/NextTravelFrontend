@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================= CSS ================= -->
+  <link rel="stylesheet" href="CSS/barranavegacion.css">
+  <link rel="stylesheet" href="CSS/paquetes.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <title>Sitios Turísticos</title>
+</head>
+<body>
+
+  <!-- ================= BARRA DE NAVEGACION ================= -->
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <a href="#" class="header-logo">
+        <img src="IMG/d41b490f-618b-4e3b-9c25-661ad8e7c418.png" alt="logo">
+      </a>
+      <button class="toggler sidebar-toggler">
+        <span class="fa fa-chevron-left"></span>
+      </button>
+    </header>
+
+    <nav class="sidebar-nav">
+      <!-- PRIMER NAV -->
+      <ul class="nav-list primary-nav">
+        <li class="nav-item">
+          <a href="empleados.html" class="nav-link">
+            <span class="nav-icon fa fa-user-friends"></span>
+            <span class="nav-label">Empleados</span>
+          </a>
+          <span class="nav-tooltip">Empleados</span>
+        </li>
+        <li class="nav-item">
+          <a href="paquetes.html" class="nav-link">
+            <span class="nav-icon fa fa-box"></span>
+            <span class="nav-label">Administración</span>
+          </a>
+          <span class="nav-tooltip">Administración</span>
+        </li>
+        <li class="nav-item">
+          <a href="cliente.html" class="nav-link">
+            <span class="nav-icon fa fa-user"></span>
+            <span class="nav-label">Clientes</span>
+          </a>
+          <span class="nav-tooltip">Clientes</span>
+        </li>
+        <li class="nav-item">
+          <a href="mensajes.html" class="nav-link">
+            <span class="nav-icon fa fa-comment-alt"></span>
+            <span class="nav-label">Mensajes</span>
+          </a>
+          <span class="nav-tooltip">Mensajes</span>
+        </li>
+        <li class="nav-item">
+          <a href="mantenimiento.html" class="nav-link">
+            <span class="nav-icon fa fa-tools"></span>
+            <span class="nav-label">Mantenimiento</span>
+          </a>
+          <span class="nav-tooltip">Mantenimiento</span>
+        </li>
+      </ul>
+
+      <!-- SEGUNDO NAV -->
+      <ul class="nav-list secondary-nav">
+        <li class="nav-item">
+          <a href="perfil.html" class="nav-link">
+            <span class="nav-icon fa fa-user-circle"></span>
+            <span class="nav-label">Perfil</span>
+          </a>
+          <span class="nav-tooltip">Perfil</span>
+        </li>
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <span class="nav-icon fa fa-sign-out-alt"></span>
+            <span class="nav-label">Cerrar</span>
+          </a>
+          <span class="nav-tooltip">Cerrar</span>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ================= BARRA DE BÚSQUEDA ================= -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="¿Qué lugar estás buscando?">
+    <button class="search-button">
+      <i class="fa fa-search"></i>
+    </button>
+    <button class="custom-button">Nuevo sitio</button>
+  </div>
+
+  <!-- ================= CONTENEDOR PRINCIPAL DE SITIOS ================= -->
+  <main class="main-content">
+    <div class="container swiper">
+      <div class="wrapper">
+        <div class="card-list swiper-wrapper">
+
+          <!-- TARJETA 1 -->
+          <div class="card swiper-slide">
+            <div class="card-image">
+              <img src="IMG/el-cuco-1.jpg" alt="El Tunco">
+              <p class="card-tag">El Tunco</p>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Playa El Tunco</h3>
+              <p class="card-text">Playa El Tunco es una famosa playa en El Salvador, conocida por su ambiente animado y sus excelentes olas para surfear.</p>
+              <div class="sitios-btn">
+                <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+                <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 2 -->
+          <div class="card swiper-slide">
+            <div class="card-image">
+              <img src="IMG/El-Zonte-9.jpg" alt="El Cuco">
+              <p class="card-tag">El Cuco</p>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Playa El Cuco</h3>
+              <p class="card-text">Playa El Cuco es una famosa playa en El Salvador, conocida por su ambiente animado y sus excelentes olas para surfear.</p>
+              <div class="sitios-btn">
+                <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+                <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 3 -->
+          <div class="card swiper-slide">
+            <div class="card-image">
+              <img src="IMG/El-Zonte-9.jpg" alt="El Zonte">
+              <p class="card-tag">El Zonte</p>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Playa El Zonte</h3>
+              <p class="card-text">Playa El Zonte es una famosa playa en El Salvador, conocida por su ambiente animado y sus excelentes olas para surfear.</p>
+              <div class="sitios-btn">
+                <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+                <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 4 -->
+          <div class="card swiper-slide">
+            <div class="card-image">
+              <img src="IMG/El-Zonte-9.jpg" alt="Las Flores">
+              <p class="card-tag">Las Flores</p>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Playa Las Flores</h3>
+              <p class="card-text">Playa Las Flores es una famosa playa en El Salvador, conocida por su ambiente animado y sus excelentes olas para surfear.</p>
+              <div class="sitios-btn">
+                <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+                <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- /.card-list -->
+
+        <!-- CONTROLES SWIPER -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= MODALES ================= -->
+
+  <!-- MODAL AGREGAR SITIO -->
+  <div id="addSiteModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Agregar Sitio Turístico</h2>
+      <form id="addSiteForm">
+        <div class="form-group profile-photo">
+          <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
+          <input type="file" id="fotoAdd" accept="image/*" style="display:none;">
+        </div>
+
+        <div class="form-group">
+          <label for="siteName">Nombre del sitio</label>
+          <input type="text" id="siteName" name="siteName" placeholder="Nombre del sitio" required>
+        </div>
+
+        <div class="form-group">
+          <label for="siteLocation">Ubicación</label>
+          <input type="text" id="siteLocation" name="siteLocation" placeholder="Ubicación" required>
+        </div>
+
+        <div class="form-group">
+          <label for="siteCategory">Categoría</label>
+          <select id="siteCategory" name="siteCategory" required>
+            <option value="">Seleccione...</option>
+            <option value="playa">Playa</option>
+            <option value="arqueologico">Arqueológico</option>
+            <option value="recomendado">Recomendado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="siteDescription">Descripción</label>
+          <textarea id="siteDescription" name="siteDescription" placeholder="Descripción del sitio" required></textarea>
+        </div>
+
+        <div class="form-row center">
+          <button type="submit" class="submit-btn">Guardar</button>
+          <button type="button" class="cancel-btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL EDITAR SITIO -->
+  <div id="editSiteModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Editar Sitio Turístico</h2>
+      <form id="editSiteForm">
+        <div class="form-group profile-photo">
+          <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
+          <input type="file" id="fotoEdit" accept="image/*" style="display:none;">
+        </div>
+
+        <div class="form-group">
+          <label for="editSiteName">Nombre del sitio</label>
+          <input type="text" id="editSiteName" name="editSiteName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editSiteLocation">Ubicación</label>
+          <input type="text" id="editSiteLocation" name="editSiteLocation" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editSiteCategory">Categoría</label>
+          <select id="editSiteCategory" name="editSiteCategory" required>
+            <option value="playa">Playa</option>
+            <option value="arqueologico">Arqueológico</option>
+            <option value="recomendado">Recomendado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="editSiteDescription">Descripción</label>
+          <textarea id="editSiteDescription" name="editSiteDescription" required></textarea>
+        </div>
+
+        <!-- BOTONES -->
+        <div class="form-row" id="infoButtons">
+          <button type="button" class="submit-btn" id="editarBtn">Editar</button>
+          <button type="button" class="cancel-btn" id="cancelarInfoBtn">Cancelar</button>
+        </div>
+        <div class="form-row" id="guardarButtons" style="display:none;">
+          <button type="button" class="submit-btn" id="guardarBtn">Guardar Cambios</button>
+          <button type="button" class="cancel-btn" id="cancelarEditBtn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL CONFIRMACION ELIMINAR -->
+  <div class="modal" id="confirmarEliminar">
+    <div class="modal-content small">
+      <h3>¿Deseas eliminar este sitio?</h3>
+      <div class="form-row center">
+        <button class="cancel-btn" id="cancelarEliminar">Cancelar</button>
+        <button class="submit-btn" id="aceptarEliminar">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CERRAR SESION -->
+  <div class="modal" id="logoutModal">
+    <div class="modal-content">
+      <h3>¿Seguro que deseas cerrar sesión?</h3>
+      <p>Se cerrará tu sesión actual y deberás volver a iniciar.</p>
+      <div class="form-row">
+        <button class="cancel-btn" id="cancelarLogout">Cancelar</button>
+        <button class="delete-btn" id="confirmarLogout">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="JS/paquetes.js"></script>
+  <script src="JS/barranavegacion.js"></script>
+
+</body>
+</html>

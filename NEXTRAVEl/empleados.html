@@ -56,13 +56,17 @@
           <span class="nav-tooltip">Mensajes</span>
         </li>
 
-        <li class="nav-item">
+         <!--
+        
+          <li class="nav-item">
           <a href="ganacias.html" class="nav-link">
             <span class="nav-icon fa fa-chart-line"></span>
             <span class="nav-label">Ganancias</span>
           </a>
           <span class="nav-tooltip">Ganancias</span>
         </li>
+        
+        -->
 
         <li class="nav-item">
           <a href="mantenimiento.html" class="nav-link">
@@ -110,13 +114,12 @@
       <h2>Agregar Empleado</h2>
 
       <form>
-        <!-- Foto de perfil con subida -->
-        <div class="profile-photo">
-          <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
-        </div>
-        <div class="form-group">
-          <input type="file" id="foto" accept="image/*">
-        </div>
+      <!-- Foto de perfil con subida -->
+      <div class="profile-photo">
+        <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
+        <input type="file" id="foto" accept="image/*" style="display:none;">
+      </div>
+
 
         <!-- Nombre y Apellido -->
         <div class="form-row">
@@ -159,7 +162,6 @@
           <div class="form-group">
             <label for="estado">Estado</label>
             <select id="estado">
-              <option value="">Seleccione</option>
               <option value="activo">Activo</option>
               <option value="inactivo">Inactivo</option>
             </select>
@@ -177,7 +179,7 @@
         <!-- Botones -->
         <div class="form-row">
           <button type="button" class="cancel-btn">Cancelar</button>
-          <button type="submit" class="submit-btn">Agregar</button>
+          <button type="submit" class="submit-btn" id="AgregarBtn">Agregar</button>
         </div>
 
 
@@ -344,6 +346,18 @@
         <button type="button" class="cancel-btn" id="cancelarEditBtn">Cancelar</button>
       </div>
     </form>
+  </div>
+</div>
+
+<!--Modal cerrar sesion-->
+<div class="modal" id="logoutModal">
+  <div class="modal-content">
+    <h3>¿Seguro que deseas cerrar sesión?</h3>
+    <p>Se cerrará tu sesión actual y deberás volver a iniciar.</p>
+    <div class="form-row">
+      <button class="cancel-btn" id="cancelarLogout">Cancelar</button>
+      <button class="delete-btn" id="confirmarLogout">Cerrar sesión</button>
+    </div>
   </div>
 </div>
 

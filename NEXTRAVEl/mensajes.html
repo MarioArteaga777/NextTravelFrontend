@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/barranavegacion.css">
+     <link rel="stylesheet" href="css/mansaje.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <a href="#" class="header-logo">
+        <img src="IMG/d41b490f-618b-4e3b-9c25-661ad8e7c418.png" alt="logo">
+      </a>
+      <button class="toggler sidebar-toggler">
+        <span class="fa fa-chevron-left"></span>
+      </button>
+    </header>
+
+    <nav class="sidebar-nav">
+      <!-- Primer nav -->
+      <ul class="nav-list primary-nav">
+        <li class="nav-item">
+          <a href="empleados.html" class="nav-link">
+            <span class="nav-icon fa fa-user-friends"></span>
+            <span class="nav-label">Empleados</span>
+          </a>
+          <span class="nav-tooltip">Empleados</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="paquetes.html" class="nav-link">
+            <span class="nav-icon fa fa-box"></span>
+            <span class="nav-label">Administración</span>
+          </a>
+          <span class="nav-tooltip">Administración</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="cliente.html" class="nav-link">
+            <span class="nav-icon fa fa-user"></span>
+            <span class="nav-label">Clientes</span>
+          </a>
+          <span class="nav-tooltip">Clientes</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="mensajes.html" class="nav-link">
+            <span class="nav-icon fa fa-comment-alt"></span>
+            <span class="nav-label">Mensajes</span>
+          </a>
+          <span class="nav-tooltip">Mensajes</span>
+        </li>
+
+         <!--
+        
+          <li class="nav-item">
+          <a href="ganacias.html" class="nav-link">
+            <span class="nav-icon fa fa-chart-line"></span>
+            <span class="nav-label">Ganancias</span>
+          </a>
+          <span class="nav-tooltip">Ganancias</span>
+        </li>
+        
+        -->
+        <li class="nav-item">
+          <a href="mantenimiento.html" class="nav-link">
+            <span class="nav-icon fa fa-tools"></span>
+            <span class="nav-label">Mantenimiento</span>
+          </a>
+          <span class="nav-tooltip">Mantenimiento</span>
+        </li>
+      </ul>
+
+      <!-- Segundo nav -->
+      <ul class="nav-list secondary-nav">
+        <li class="nav-item">
+          <a href="perfil.html" class="nav-link">
+            <span class="nav-icon fa fa-user-circle"></span>
+            <span class="nav-label">Perfil</span>
+          </a>
+          <span class="nav-tooltip">Perfil</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <span class="nav-icon fa fa-sign-out-alt"></span>
+            <span class="nav-label">Cerrar</span>
+          </a>
+          <span class="nav-tooltip">Cerrar</span>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+
+<main class="contenido-principal">
+  <div class="app">
+    <!-- Panel de chats -->
+    <div class="chat-sidebar">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar chats..." />
+      </div>
+      <div class="chat-list" id="chatList">
+        <div class="chat-item active">
+            <img src="img/mario arteaga.jpg" >
+          <div class="chat-info">
+            <div class="name">Mario Arteaga</div>
+            <div class="last-message">¿Ya terminaste el proyecto?</div>
+          </div>
+          <div class="chat-time">Ahora</div>
+        </div>
+        <div class="chat-item">
+            <img src="img/mario arteaga.jpg" >
+          <div class="chat-info">
+            <div class="name">Carlos Mario</div>
+            <div class="last-message">Nos vemos el sábado</div>
+          </div>
+          <div class="chat-time">Ahora</div>
+        </div>
+        <div class="chat-item">" 
+            <img src="img/mario arteaga.jpg" alt="">
+          <div class="chat-info">
+            <div class="name">Paul Melquisedec</div>
+            <div class="last-message">¡Con gusto, Paul!</div>
+          </div>
+          <div class="chat-time">Ahora</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Área del chat -->
+    <div class="chat-area">
+      <div class="chat-header">
+        <img id="chatAvatar" src="img/mario arteaga.jpg"/>
+        <div class="info">
+          <div class="name" id="chatName">Mario Arteaga</div>
+        </div>
+        <i class="fas fa-info-circle" style="margin-right: 15px;"></i>
+      </div>
+
+      <div class="chat-box" id="chatBox">
+        <div class="message received">Hola, ¿cómo vas con el proyecto?</div>
+        <div class="message sent">Ya casi lo termino, gracias.</div>
+      </div>
+
+      <div class="chat-input">
+        <i class="far fa-smile"></i>
+        <i class="fas fa-paperclip"></i>
+        <input type="text" id="messageInput" placeholder="Escribe un mensaje..." />
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!--Modal cerrar sesion-->
+<div class="modal" id="logoutModal">
+  <div class="modal-content">
+    <h3>¿Seguro que deseas cerrar sesión?</h3>
+    <p>Se cerrará tu sesión actual y deberás volver a iniciar.</p>
+    <div class="form-row">
+      <button class="cancel-btn" id="cancelarLogout">Cancelar</button>
+      <button class="delete-btn" id="confirmarLogout">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+</main>
+
+
+
+    <script src="js/mansaje.js"></script>
+    <script src="js/barranavegacion.js"></script>
+</body>
+</html>

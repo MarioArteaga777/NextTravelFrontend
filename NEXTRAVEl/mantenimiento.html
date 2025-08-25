@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/barranavegacion.css">
+  <link rel="stylesheet" href="CSS/mantenimiento.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <a href="#" class="header-logo">
+        <img src="IMG/d41b490f-618b-4e3b-9c25-661ad8e7c418.png" alt="logo">
+      </a>
+      <button class="toggler sidebar-toggler">
+        <span class="fa fa-chevron-left"></span>
+      </button>
+    </header>
+
+    <nav class="sidebar-nav">
+      <!-- Primer nav -->
+      <ul class="nav-list primary-nav">
+        <li class="nav-item">
+          <a href="empleados.html" class="nav-link">
+            <span class="nav-icon fa fa-user-friends"></span>
+            <span class="nav-label">Empleados</span>
+          </a>
+          <span class="nav-tooltip">Empleados</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="paquetes.html" class="nav-link">
+            <span class="nav-icon fa fa-box"></span>
+            <span class="nav-label">Administración</span>
+          </a>
+          <span class="nav-tooltip">Administración</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="cliente.html" class="nav-link">
+            <span class="nav-icon fa fa-user"></span>
+            <span class="nav-label">Clientes</span>
+          </a>
+          <span class="nav-tooltip">Clientes</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="mensajes.html" class="nav-link">
+            <span class="nav-icon fa fa-comment-alt"></span>
+            <span class="nav-label">Mensajes</span>
+          </a>
+          <span class="nav-tooltip">Mensajes</span>
+        </li>
+        <!--
+        
+          <li class="nav-item">
+          <a href="ganacias.html" class="nav-link">
+            <span class="nav-icon fa fa-chart-line"></span>
+            <span class="nav-label">Ganancias</span>
+          </a>
+          <span class="nav-tooltip">Ganancias</span>
+        </li>
+        
+        -->
+    
+
+        <li class="nav-item">
+          <a href="mantenimiento.html" class="nav-link">
+            <span class="nav-icon fa fa-tools"></span>
+            <span class="nav-label">Mantenimiento</span>
+          </a>
+          <span class="nav-tooltip">Mantenimiento</span>
+        </li>
+      </ul>
+
+      <!-- Segundo nav -->
+      <ul class="nav-list secondary-nav">
+        <li class="nav-item">
+          <a href="perfil.html" class="nav-link">
+            <span class="nav-icon fa fa-user-circle"></span>
+            <span class="nav-label">Perfil</span>
+          </a>
+          <span class="nav-tooltip">Perfil</span>
+        </li>
+
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <span class="nav-icon fa fa-sign-out-alt"></span>
+            <span class="nav-label">Cerrar</span>
+          </a>
+          <span class="nav-tooltip">Cerrar</span>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Barra de búsqueda -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="¿Que persona estas buscando?">
+    <button class="search-button">
+      <i class="fa fa-search"></i>
+    </button>
+    <button class="custom-button">Nuevo Mantenimiento</button>
+  </div>
+
+ <!-- Modal de Formulario -->
+<div class="modal" id="miModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Agregar Gasto</h2>
+
+    <form>
+      <!-- Nombre del Realizador -->
+      <div class="form-group">
+        <label for="nombreRealizador">Nombre del Realizador</label>
+        <input type="text" id="nombreRealizador" placeholder="Ingrese el nombre">
+      </div>
+
+      <!-- Vehículo -->
+      <div class="form-group">
+        <label for="vehiculo">Vehículo</label>
+        <input type="text" id="vehiculo" placeholder="Ingrese el vehículo">
+      </div>
+
+      <!-- Gasto -->
+      <div class="form-group">
+        <label for="gasto">Gasto</label>
+        <input type="number" id="gasto" placeholder="Ingrese el gasto">
+      </div>
+
+      <!-- Fecha -->
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha">
+      </div>
+
+      <!-- Descripción -->
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" placeholder="Ingrese la descripción"></textarea>
+      </div>
+
+      <!-- Botones -->
+      <div class="form-row">
+        <button type="button" class="cancel-btn">Cancelar</button>
+        <button type="submit" class="submit-btn">Agregar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="empleados-container">
+    <!-- Tarjeta 1 -->
+    <div class="empleado-card">
+          <img src="IMG/istockphoto-2214445636-1024x1024.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Mantenimiento</span>
+        <div class="empleado-info">
+            <p>Este día fue cambiado el aceite de nuestro vehículo.</p>
+        </div>
+         <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="empleado-card">
+        <img src="IMG/istockphoto-2214445636-1024x1024.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Mantenimiento</span>
+        <div class="empleado-info">
+            <h3>Mantenimiento</h3>
+            <p>Este día fue cambiado el aceite de nuestro vehículo.</p>
+        </div>
+         <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="empleado-card">
+        <img src="IMG/istockphoto-2214445636-1024x1024.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Mantenimiento</span>
+        <div class="empleado-info">
+            <h3>Mantenimiento</h3>
+            <p>Este día fue cambiado el aceite de nuestro vehículo.</p>
+        </div>
+         <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="empleado-card">
+        <img src="IMG/istockphoto-2214445636-1024x1024.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Mantenimiento</span>
+        <div class="empleado-info">
+            <h3>Mantenimiento</h3>
+            <p>Este día fue cambiado el aceite de nuestro vehículo.</p>
+        </div>
+        <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 5 -->
+    <div class="empleado-card">
+        <img src="IMG/istockphoto-2214445636-1024x1024.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Mantenimiento</span>
+        <div class="empleado-info">
+            <h3>Mantenimiento</h3>
+            <p>Este día fue cambiado el aceite de nuestro vehículo.</p>
+        </div>
+        <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 6 -->
+    <div class="empleado-card">
+        <img src="IMG/istockphoto-2214445636-1024x1024.jpg" alt="Empleado" class="empleado-foto">
+          <span class="card-tag">Mantenimiento</span>
+        <div class="empleado-info">
+            <h3>Mantenimiento</h3>
+            <p>Este día fue cambiado el aceite de nuestro vehículo.</p>
+        </div>
+        <div class="empleado-botones">
+        <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
+        <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+</div>
+
+
+  
+
+  <!-- Modal Confirmación Eliminar -->
+<div class="modal" id="confirmarEliminar">
+  <div class="modal-content small">
+    <h3>¿Deseas eliminar a este mantenimiento?</h3>
+    <div class="form-row center">
+      <button class="cancel-btn" id="cancelarEliminar">Cancelar</button>
+      <button class="submit-btn" id="aceptarEliminar">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de Información/Edición -->
+<div class="modal" id="infoModal">
+  <div class="modal-content">
+    <span class="close-btn" id="infoClose">&times;</span>
+    <h2>Información del Gasto</h2>
+
+    <form id="infoForm">
+      <!-- Nombre del Realizador -->
+      <div class="form-group">
+        <label for="infoRealizador">Nombre del Realizador</label>
+        <input type="text" id="infoRealizador" disabled>
+      </div>
+
+      <!-- Vehículo -->
+      <div class="form-group">
+        <label for="infoVehiculo">Vehículo</label>
+        <input type="text" id="infoVehiculo" disabled>
+      </div>
+
+      <!-- Gasto -->
+      <div class="form-group">
+        <label for="infoGasto">Gasto</label>
+        <input type="number" id="infoGasto" disabled>
+      </div>
+
+      <!-- Fecha -->
+      <div class="form-group">
+        <label for="infoFecha">Fecha</label>
+        <input type="date" id="infoFecha" disabled>
+      </div>
+
+      <!-- Descripción -->
+      <div class="form-group">
+        <label for="infoDescripcion">Descripción</label>
+        <textarea id="infoDescripcion" disabled></textarea>
+      </div>
+
+      <!-- Botones -->
+      <div class="form-row" id="infoButtons">
+        <button type="button" class="submit-btn" id="editarBtn">Editar</button>
+        <button type="button" class="cancel-btn" id="cancelarInfoBtn">Cancelar</button>
+      </div>
+
+      <div class="form-row" id="guardarButtons" style="display:none;">
+        <button type="button" class="submit-btn" id="guardarBtn">Guardar Cambios</button>
+        <button type="button" class="cancel-btn" id="cancelarEditBtn">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!--Modal cerrar sesion-->
+<div class="modal" id="logoutModal">
+  <div class="modal-content">
+    <h3>¿Seguro que deseas cerrar sesión?</h3>
+    <p>Se cerrará tu sesión actual y deberás volver a iniciar.</p>
+    <div class="form-row">
+      <button class="cancel-btn" id="cancelarLogout">Cancelar</button>
+      <button class="delete-btn" id="confirmarLogout">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- Script -->
+  <script src="JS/mantenimiento.js"></script>
+  <script src="js/barranavegacion.js"></script>
+</body>
+</html>
