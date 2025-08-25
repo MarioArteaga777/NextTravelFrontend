@@ -6,7 +6,7 @@
   <title>Perfil de Usuario</title>
   <link rel="stylesheet" href="css/barranavegacion.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="CSS/perfil.css">
+  <link rel="stylesheet" href="css/perfil.css">
 </head>
 <body>
   <!-- Sidebar -->
@@ -21,122 +21,100 @@
     </header>
 
     <nav class="sidebar-nav">
-      <!-- Primer nav -->
       <ul class="nav-list primary-nav">
         <li class="nav-item">
           <a href="empleados.html" class="nav-link">
             <span class="nav-icon fa fa-user-friends"></span>
             <span class="nav-label">Empleados</span>
           </a>
-          <span class="nav-tooltip">Empleados</span>
         </li>
-
         <li class="nav-item">
           <a href="paquetes.html" class="nav-link">
             <span class="nav-icon fa fa-box"></span>
             <span class="nav-label">Administración</span>
           </a>
-          <span class="nav-tooltip">Administración</span>
         </li>
-
         <li class="nav-item">
           <a href="cliente.html" class="nav-link">
             <span class="nav-icon fa fa-user"></span>
             <span class="nav-label">Clientes</span>
           </a>
-          <span class="nav-tooltip">Clientes</span>
         </li>
-
         <li class="nav-item">
           <a href="mensajes.html" class="nav-link">
             <span class="nav-icon fa fa-comment-alt"></span>
             <span class="nav-label">Mensajes</span>
           </a>
-          <span class="nav-tooltip">Mensajes</span>
         </li>
-
-         <!--
-        
-          <li class="nav-item">
-          <a href="ganacias.html" class="nav-link">
-            <span class="nav-icon fa fa-chart-line"></span>
-            <span class="nav-label">Ganancias</span>
-          </a>
-          <span class="nav-tooltip">Ganancias</span>
-        </li>
-        
-        -->
-
         <li class="nav-item">
           <a href="mantenimiento.html" class="nav-link">
             <span class="nav-icon fa fa-tools"></span>
             <span class="nav-label">Mantenimiento</span>
           </a>
-          <span class="nav-tooltip">Mantenimiento</span>
         </li>
       </ul>
 
-      <!-- Segundo nav -->
       <ul class="nav-list secondary-nav">
         <li class="nav-item">
-          <a href="perfil.html" class="nav-link">
+          <a href="perfil.html" class="nav-link active">
             <span class="nav-icon fa fa-user-circle"></span>
             <span class="nav-label">Perfil</span>
           </a>
-          <span class="nav-tooltip">Perfil</span>
         </li>
-
         <li class="nav-item">
           <a href="index.html" class="nav-link">
             <span class="nav-icon fa fa-sign-out-alt"></span>
             <span class="nav-label">Cerrar</span>
           </a>
-          <span class="nav-tooltip">Cerrar</span>
         </li>
       </ul>
     </nav>
   </aside>
 
+  <!-- Contenedor principal -->
+  <div class="perfil-container">
+    <!-- Tarjeta izquierda -->
+    <div class="perfil-card">
+      <img src="IMG/mario arteaga.jpg" alt="Foto Perfil" class="perfil-foto" id="perfilFoto">
+      <h2 id="perfilNombre">Juan Pérez</h2>
+      <p id="perfilCorreo">juanperez@example.com</p>
+      <p id="perfilPass">********</p>
+      <p id="perfilTipo">Administrador</p>
+      <button class="cerrar-btn">Cerrar Sesión</button>
+    </div>
 
-<div class="perfil-container">
-  <!-- CONTENEDOR IZQUIERDA -->
-  <div class="perfil-card">
-    <img src="IMG/mario arteaga.jpg" alt="Foto Perfil" class="perfil-foto" id="perfilFoto">
-    <h2 id="perfilNombre">Juan Pérez</h2>
-    <p id="perfilCorreo">juanperez@example.com</p>
-    <p id="perfilPass">********</p>
-    <p id="perfilTipo">Administrador</p>
-    <button class="cerrar-btn">Cerrar Sesión</button>
+    <!-- Formulario derecho -->
+    <div class="perfil-form-card">
+      <form id="perfilForm">
+        <label for="formImagen">Foto de Perfil</label>
+        <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
+        <input type="file" id="foto" accept="image/*" style="display:none;">
+
+        <label>Nombre</label>
+        <input type="text" id="formNombre" value="Juan" disabled>
+        
+        <label>Apellido</label>
+        <input type="text" id="formApellido" value="Pérez" disabled>
+
+        <label>Correo</label>
+        <input type="email" id="formCorreo" value="juanperez@example.com" disabled>
+
+        <label>Contraseña</label>
+        <input type="password" id="formPass" value="123456" disabled>
+
+        <label>Tipo de cuenta</label>
+        <input type="text" id="formTipo" value="Administrador" disabled>
+
+        <div class="botones-perfil">
+          <button type="button" id="editarPerfilBtn">Editar</button>
+          <button type="button" id="guardarPerfilBtn" class="oculto submit-btn">Guardar Cambios</button>
+          <button type="button" id="cancelarPerfilBtn" class="oculto cancel-btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
   </div>
 
-  <!-- CONTENEDOR DERECHA -->
-  <div class="perfil-form-card">
-    <form id="perfilForm">
-      <label>Nombre</label>
-      <input type="text" id="formNombre" value="Juan" disabled>
-      
-      <label>Apellido</label>
-      <input type="text" id="formApellido" value="Pérez" disabled>
-
-      <label>Correo</label>
-      <input type="email" id="formCorreo" value="juanperez@example.com" disabled>
-
-      <label>Contraseña</label>
-      <input type="password" id="formPass" value="123456" disabled>
-
-      <label>Tipo de cuenta</label>
-      <input type="text" id="formTipo" value="Administrador" disabled>
-
-      <div class="botones-perfil">
-        <button type="button" id="editarPerfilBtn">Editar</button>
-        <button type="button" id="guardarPerfilBtn" class="oculto">Guardar Cambios</button>
-        <button type="button" id="cancelarPerfilBtn" class="oculto">Cancelar</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<script src="JS/barranavegacion.js"></script>
-<script src="JS/perfil.js"></script>
+  <script src="js/barranavegacion.js"></script>
+  <script src="js/perfil.js"></script>
 </body>
 </html>
