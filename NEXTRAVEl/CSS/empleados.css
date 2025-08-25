@@ -1,4 +1,3 @@
-/* BUSCADOR */
 .search-container {
     position: fixed;
     top: 40px;
@@ -44,7 +43,6 @@
     background: #175971;
 }
 
-/* BOTÓN NUEVO EMPLEADO */
 .custom-button {
     position: fixed;
     top: 95px;
@@ -65,7 +63,6 @@
     transform: scale(1.05);
 }
 
-/* MODALES */
 .modal {
     display: none;
     position: fixed;
@@ -120,7 +117,6 @@
     color: #ffb3b3;
 }
 
-/* Botones del modal */
 .submit-btn,
 .cancel-btn {
     flex: 0 0 auto;
@@ -140,17 +136,20 @@
 #confirmarEliminar .submit-btn { background: #c0392b;}
 #confirmarEliminar .submit-btn:hover { background: #a93226;}
 
-/* FORMULARIOS */
+.profile-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 .profile-photo img {
     width: 100px;
     height: 100px;
-    object-fit: cover;
     border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.7);
-    margin: 0 auto 20px auto;
-    cursor: pointer;
-    transition: 0.3s ease;
+    border: 3px solid #fff;
+    object-fit: cover;
 }
+
 .profile-photo img:hover { transform: scale(1.05); }
 
 .form-row { display: flex; gap: 15px; margin-bottom: 15px; }
@@ -164,10 +163,8 @@
 }
 .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.7); }
 
-/* ANIMACIONES */
 @keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
 
-/* TABLA EMPLEADOS */
 .empleados-table-container {
     background: linear-gradient(145deg, #67a6b4, #2f5858);
     border-radius: 50px;
@@ -185,26 +182,30 @@
 .empleados-table tr:hover { background: rgba(255,255,255,0.1); }
 .tabla-foto { width:50px; height:50px; object-fit:cover; border-radius:50%; border:2px solid rgba(255,255,255,0.7); }
 
-/* MINI ACCIONES FLOTANTES */
 #miniAcciones {
     background: rgba(54,118,125,0.95);
     padding: 8px 12px;
     border-radius: 15px;
-    display: flex;
-    gap: 5px;
+    display: none;
+    gap: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    z-index: 20000;
+    position: absolute;
 }
 
 #miniAcciones button {
-    padding: 5px 10px;
+    padding: 6px 12px;
     font-size: 13px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.3s;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-#miniEditar { background:#2980b9; color:#fff;}
-#miniEliminar { background:#c0392b; color:#fff;}
+#miniEditar { background:#2980b9; color:#fff; }
+#miniMensaje { background:#27ae60; color:#fff; }
+#miniEliminar { background:#c0392b; color:#fff; }
+
 #miniEditar:hover { background:#1f618d; }
+#miniMensaje:hover { background:#1e8449; }
 #miniEliminar:hover { background:#922b21; }

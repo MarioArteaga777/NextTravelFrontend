@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="css/barranavegacion.css">
   <link rel="stylesheet" href="css/empleados.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- CDN SweetAlert2 (agrégalo en tu HTML antes de cerrar el body) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
   <!-- Sidebar -->
@@ -206,11 +209,12 @@
     </table>
   </div>
 
-  <!-- Mini contenedor de acciones -->
-  <div id="miniAcciones" style="display:none; position:absolute; z-index:1000;">
-    <button id="miniEditar" class="info-btn">Editar</button>
-    <button id="miniEliminar" class="eliminar-btn">Eliminar</button>
-  </div>
+  <!-- Contenedor Mini Acciones (oculto al inicio) -->
+<div id="miniAcciones" style="display:none; position:absolute;">
+  <button id="miniEditar">Editar</button>
+  <button id="miniMensaje">Mensajes</button>
+  <button id="miniEliminar">Eliminar</button>
+</div>
 
   <!-- Scripts -->
   <script src="js/empleados.js"></script>
