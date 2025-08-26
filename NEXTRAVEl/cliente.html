@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clientes</title>
+  <title>Empleados</title>
   <link rel="stylesheet" href="css/barranavegacion.css">
-  <link rel="stylesheet" href="CSS/cliente.css">
+  <link rel="stylesheet" href="css/empleados.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 <body>
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -20,164 +20,69 @@
         <span class="fa fa-chevron-left"></span>
       </button>
     </header>
-
     <nav class="sidebar-nav">
       <ul class="nav-list primary-nav">
-        <li class="nav-item">
-          <a href="empleados.html" class="nav-link">
-            <span class="nav-icon fa fa-user-friends"></span>
-            <span class="nav-label">Empleados</span>
-          </a>
-          <span class="nav-tooltip">Empleados</span>
-        </li>
-        <li class="nav-item">
-          <a href="paquetes.html" class="nav-link">
-            <span class="nav-icon fa fa-box"></span>
-            <span class="nav-label">Administración</span>
-          </a>
-          <span class="nav-tooltip">Administración</span>
-        </li>
-        <li class="nav-item">
-          <a href="cliente.html" class="nav-link">
-            <span class="nav-icon fa fa-user"></span>
-            <span class="nav-label">Clientes</span>
-          </a>
-          <span class="nav-tooltip">Clientes</span>
-        </li>
-        <li class="nav-item">
-          <a href="mensajes.html" class="nav-link">
-            <span class="nav-icon fa fa-comment-alt"></span>
-            <span class="nav-label">Mensajes</span>
-          </a>
-          <span class="nav-tooltip">Mensajes</span>
-        </li>
-         <!--
-        
-          <li class="nav-item">
-          <a href="ganacias.html" class="nav-link">
-            <span class="nav-icon fa fa-chart-line"></span>
-            <span class="nav-label">Ganancias</span>
-          </a>
-          <span class="nav-tooltip">Ganancias</span>
-        </li>
-        
-        -->
-        <li class="nav-item">
-          <a href="mantenimiento.html" class="nav-link">
-            <span class="nav-icon fa fa-tools"></span>
-            <span class="nav-label">Mantenimiento</span>
-          </a>
-          <span class="nav-tooltip">Mantenimiento</span>
-        </li>
+        <li class="nav-item"><a href="empleados.html" class="nav-link"><span class="nav-icon fa fa-user-friends"></span><span class="nav-label">Empleados</span></a><span class="nav-tooltip">Empleados</span></li>
+        <li class="nav-item"><a href="paquetes.html" class="nav-link"><span class="nav-icon fa fa-box"></span><span class="nav-label">Administración</span></a><span class="nav-tooltip">Administración</span></li>
+        <li class="nav-item"><a href="cliente.html" class="nav-link"><span class="nav-icon fa fa-user"></span><span class="nav-label">Clientes</span></a><span class="nav-tooltip">Clientes</span></li>
+        <li class="nav-item"><a href="mensajes.html" class="nav-link"><span class="nav-icon fa fa-comment-alt"></span><span class="nav-label">Mensajes</span></a><span class="nav-tooltip">Mensajes</span></li>
+        <li class="nav-item"><a href="mantenimiento.html" class="nav-link"><span class="nav-icon fa fa-tools"></span><span class="nav-label">Mantenimiento</span></a><span class="nav-tooltip">Mantenimiento</span></li>
       </ul>
-
       <ul class="nav-list secondary-nav">
-        <li class="nav-item">
-          <a href="perfil.html" class="nav-link">
-            <span class="nav-icon fa fa-user-circle"></span>
-            <span class="nav-label">Perfil</span>
-          </a>
-          <span class="nav-tooltip">Perfil</span>
-        </li>
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">
-            <span class="nav-icon fa fa-sign-out-alt"></span>
-            <span class="nav-label">Cerrar</span>
-          </a>
-          <span class="nav-tooltip">Cerrar</span>
-        </li>
+        <li class="nav-item"><a href="perfil.html" class="nav-link"><span class="nav-icon fa fa-user-circle"></span><span class="nav-label">Perfil</span></a><span class="nav-tooltip">Perfil</span></li>
+        <li class="nav-item"><a href="index.html" class="nav-link"><span class="nav-icon fa fa-sign-out-alt"></span><span class="nav-label">Cerrar</span></a><span class="nav-tooltip">Cerrar</span></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Barra de búsqueda -->
+  <!-- Botón Agregar -->
   <div class="search-container">
-    <input type="text" id="searchInput" placeholder="¿Qué persona estás buscando?">
-    <button class="search-button">
-      <i class="fa fa-search"></i>
-    </button>
+    <button class="custom-button">Nuevo Cliente</button>
   </div>
 
-  <!-- Contenedor principal de clientes -->
-  <main>
-    <div class="clientes-container">
-      <!-- Fila 1 -->
-      <div class="cliente-card">
-        <img src="IMG/mario arteaga.jpg" alt="Cliente" class="cliente-foto">
-        <span class="card-tag">CLIENTE</span>
-        <div class="cliente-info">
-          <h3>Mario Arteaga</h3>
+  <!-- Modal Agregar -->
+  <div class="modal" id="miModal">  
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Agregar Cliente</h2>
+      <form>
+        <div class="profile-photo">
+          <img id="preview" src="https://via.placeholder.com/100" alt="Foto de perfil">
+          <input type="file" id="foto" accept="image/*" style="display:none;">
         </div>
-        <div class="cliente-botones">
-          <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-          <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+        <div class="form-row">
+          <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre"></div>
+          <div class="form-group"><label for="apellido">Apellido</label><input type="text" id="apellido"></div>
         </div>
-      </div>
-
-      <div class="cliente-card">
-        <img src="IMG/zelaya.jpg" alt="Cliente" class="cliente-foto">
-        <span class="card-tag">CLIENTE</span>
-        <div class="cliente-info">
-          <h3>Diego Zelaya</h3>
+        <div class="form-row">
+          <div class="form-group"><label for="correo">Correo</label><input type="email" id="correo"></div>
+          <div class="form-group"><label for="edad">Edad</label><input type="number" id="edad"></div>
         </div>
-        <div class="cliente-botones">
-          <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-          <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+        <div class="form-row">
+          <div class="form-group"><label for="estado">Estado</label>
+            <select id="estado"><option value="activo">Activo</option><option value="inactivo">Inactivo</option></select>
+          </div>
+          <div class="form-group"><label for="genero">Género</label>
+            <select id="genero"><option value="masculino">Masculino</option><option value="femenino">Femenino</option></select>
+          </div>
         </div>
-      </div>
-
-      <div class="cliente-card">
-        <img src="IMG/cliente3.jpg" alt="Cliente" class="cliente-foto">
-        <span class="card-tag">CLIENTE</span>
-        <div class="cliente-info">
-          <h3>Laura Gómez</h3>
+        <div class="form-row">
+          <div class="form-group"><label for="direccion">Dirección</label><input type="text" id="direccion"></div>
+          <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono"></div>
         </div>
-        <div class="cliente-botones">
-          <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-          <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
+        <div class="form-row">
+          <div class="form-group"><label for="dui">DUI</label><input type="text" id="dui" placeholder="00000000-0"></div>
+          <div class="form-group"><label for="fechaRegistro">Fecha de Registro</label><input type="date" id="fechaRegistro"></div>
         </div>
-      </div>
-
-      <!-- Fila 2 -->
-      <div class="cliente-card">
-        <img src="IMG/cliente4.jpg" alt="Cliente" class="cliente-foto">
-        <span class="card-tag">CLIENTE</span>
-        <div class="cliente-info">
-          <h3>José Martínez</h3>
+        <div class="form-row">
+          <button type="button" class="cancel-btn">Cancelar</button>
+          <button type="submit" class="submit-btn" id="AgregarBtn">Agregar</button>
         </div>
-        <div class="cliente-botones">
-          <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-          <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
-        </div>
-      </div>
-
-      <div class="cliente-card">
-        <img src="IMG/cliente5.jpg" alt="Cliente" class="cliente-foto">
-        <span class="card-tag">CLIENTE</span>
-        <div class="cliente-info">
-          <h3>Ana Pérez</h3>
-        </div>
-        <div class="cliente-botones">
-          <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-          <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
-        </div>
-      </div>
-
-      <div class="cliente-card">
-        <img src="IMG/cliente6.jpg" alt="Cliente" class="cliente-foto">
-        <span class="card-tag">CLIENTE</span>
-        <div class="cliente-info">
-          <h3>Carlos Ruiz</h3>
-        </div>
-        <div class="cliente-botones">
-          <button class="info-btn" title="Información"><i class="fas fa-info-circle"></i></button>
-          <button class="eliminar-btn" title="Eliminar"><i class="fas fa-trash"></i></button>
-        </div>
-      </div>
+      </form>
     </div>
-  </main>
+  </div>
 
-  <!-- Modal Confirmación Eliminar -->
+  <!-- Modal Confirmar Eliminar -->
   <div class="modal" id="confirmarEliminar">
     <div class="modal-content small">
       <h3>¿Deseas eliminar a este cliente?</h3>
@@ -188,74 +93,39 @@
     </div>
   </div>
 
-  <!-- Modal Información/Edición -->
+  <!-- Modal Info/Editar -->
   <div class="modal" id="infoModal">
     <div class="modal-content">
       <span class="close-btn" id="infoClose">&times;</span>
-      <h2>Información del Cliente</h2>
+      <h2>Información de Cliente</h2>
       <form id="infoForm">
         <div class="profile-photo">
           <img id="infoFoto" src="https://via.placeholder.com/100" alt="Foto de perfil">
           <input type="file" id="infoFotoInput" accept="image/*" style="display:none;">
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="infoNombre">Nombre</label>
-            <input type="text" id="infoNombre" disabled>
+          <div class="form-group"><label for="infoNombre">Nombre</label><input type="text" id="infoNombre" disabled></div>
+          <div class="form-group"><label for="infoApellido">Apellido</label><input type="text" id="infoApellido" disabled></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="infoCorreo">Correo</label><input type="email" id="infoCorreo" disabled></div>
+          <div class="form-group"><label for="infoEdad">Edad</label><input type="number" id="infoEdad" disabled></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="infoEstado">Estado</label>
+            <select id="infoEstado" disabled><option value="activo">Activo</option><option value="inactivo">Inactivo</option></select>
           </div>
-          <div class="form-group">
-            <label for="infoApellido">Apellido</label>
-            <input type="text" id="infoApellido" disabled>
+          <div class="form-group"><label for="infoGenero">Género</label>
+            <select id="infoGenero" disabled><option value="masculino">Masculino</option><option value="femenino">Femenino</option></select>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="infoCorreo">Correo</label>
-            <input type="email" id="infoCorreo" disabled>
-          </div>
-          <div class="form-group">
-            <label for="infoEdad">Edad</label>
-            <input type="number" id="infoEdad" disabled>
-          </div>
+          <div class="form-group"><label for="infoDireccion">Dirección</label><input type="text" id="infoDireccion" disabled></div>
+          <div class="form-group"><label for="infoTelefono">Teléfono</label><input type="tel" id="infoTelefono" disabled></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="infoEstado">Estado</label>
-            <select id="infoEstado" disabled>
-              <option value="">Seleccione</option>
-              <option value="activo">Activo</option>
-              <option value="inactivo">Inactivo</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="infoGenero">Género</label>
-            <select id="infoGenero" disabled>
-              <option value="">Seleccione</option>
-              <option value="masculino">Masculino</option>
-              <option value="femenino">Femenino</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="infoDireccion">Dirección</label>
-            <input type="text" id="infoDireccion" disabled>
-          </div>
-          <div class="form-group">
-            <label for="infoTelefono">Teléfono</label>
-            <input type="tel" id="infoTelefono" disabled>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="infoDui">DUI</label>
-            <input type="text" id="infoDui" disabled>
-          </div>
-          <div class="form-group">
-            <label for="infoFechaRegistro">Fecha de Registro</label>
-            <input type="date" id="infoFechaRegistro" disabled>
-          </div>
+          <div class="form-group"><label for="infoDui">DUI</label><input type="text" id="infoDui" disabled></div>
+          <div class="form-group"><label for="infoFechaRegistro">Fecha de Registro</label><input type="date" id="infoFechaRegistro" disabled></div>
         </div>
         <div class="form-row" id="infoButtons">
           <button type="button" class="submit-btn" id="editarBtn">Editar</button>
@@ -269,21 +139,34 @@
     </div>
   </div>
 
-  <!--Modal cerrar sesion-->
-<div class="modal" id="logoutModal">
-  <div class="modal-content">
-    <h3>¿Seguro que deseas cerrar sesión?</h3>
-    <p>Se cerrará tu sesión actual y deberás volver a iniciar.</p>
-    <div class="form-row">
-      <button class="cancel-btn" id="cancelarLogout">Cancelar</button>
-      <button class="delete-btn" id="confirmarLogout">Cerrar sesión</button>
-    </div>
+  <!-- Tabla de empleados -->
+  <div class="empleados-table-container">
+    <table class="empleados-table">
+      <thead>
+        <tr>
+          <th>Foto</th><th>Nombre</th><th>Apellido</th><th>Correo</th><th>Edad</th>
+          <th>Estado</th><th>Género</th><th>Dirección</th><th>Teléfono</th><th>DUI</th><th>Fecha Registro</th><th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="IMG/mario arteaga.jpg" class="tabla-foto"></td>
+          <td>Mario</td><td>Arteaga</td><td>mario@mail.com</td><td>25</td>
+          <td>Activo</td><td>Masculino</td><td>Calle Falsa 123</td><td>0000-0000</td><td>12345678-9</td><td>2024-01-01</td>
+          <td><button class="menu-btn">⋮</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>
 
+  <!-- Contenedor Mini Acciones -->
+  <div id="miniAcciones">
+    <button id="miniEditar">Editar</button>
+    <button id="miniEliminar">Eliminar</button>
+  </div>
 
   <!-- Scripts -->
-  <script src="JS/cliente.js"></script>
+  <script src="js/empleados.js"></script>
   <script src="js/barranavegacion.js"></script>
 </body>
 </html>

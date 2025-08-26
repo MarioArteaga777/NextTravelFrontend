@@ -1,94 +1,71 @@
-// ======================= FUNCION GENERICA PARA CERRAR MODAL =======================
-function cerrarModal(modalSelector, cancelBtnSelector, extraClose = null) {
-    const modal = document.querySelector(modalSelector);
-    const cancelBtn = cancelBtnSelector ? document.querySelector(cancelBtnSelector) : null;
+// ======================== MODALES ========================
+const addClienteModal = document.getElementById("miModal");
+const editClienteModal = document.getElementById("infoModal");
+const confirmarEliminarModal = document.getElementById("confirmarEliminar");
 
-    if(cancelBtn) cancelBtn.addEventListener('click', () => modal.style.display = 'none');
-    if(extraClose) extraClose.addEventListener('click', () => modal.style.display = 'none');
+// Botones de cerrar / cancelar
+const closeButtons = document.querySelectorAll(".close-btn");
+const cancelButtons = document.querySelectorAll(".cancel-btn");
 
-    window.addEventListener('click', (e) => {
-        if(e.target === modal) modal.style.display = 'none';
-    });
-}
+// ======================== ELEMENTOS ========================
+const tablaClientes = document.querySelector(".empleados-table tbody");
+const miniMenu = document.getElementById("miniAcciones");
+let filaSeleccionada = null;
 
-// ======================= MODAL ELIMINAR =======================
-document.querySelectorAll('.eliminar-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const modal = document.getElementById('confirmarEliminar');
-        modal.style.display = 'flex';
-    });
-});
-cerrarModal('#confirmarEliminar', '#cancelarEliminar');
+// Botones mini menú
+const miniEditar = document.getElementById("miniEditar");
+const miniEliminar = document.getElementById("miniEliminar");
 
-// ======================= MODAL INFORMACION =======================
-const infoModal = document.getElementById('infoModal');
-const infoClose = document.getElementById('infoClose');
-const editarBtn = document.getElementById('editarBtn');
-const cancelarInfoBtn = document.getElementById('cancelarInfoBtn');
-const guardarButtons = document.getElementById('guardarButtons');
-const infoButtons = document.getElementById('infoButtons');
-const infoForm = document.getElementById('infoForm');
+// ======================== FUNCIONES ========================
+function abrirModal(modal) { modal.style.display = "flex"; }
+function cerrarModal(modal) { modal.style.display = "none"; }
 
-let currentCard = null;
-let originalData = {};
+// Cerrar con X
+closeButtons.forEach(btn =>
+  btn.addEventListener("click", () => cerrarModal(btn.closest(".modal")))
+);
 
-function llenarFormulario(card) {
-    const nombreCompleto = card.querySelector('.cliente-info h3').textContent;
-    const fotoSrc = card.querySelector('.cliente-foto').src;
+// Cerrar con Cancelar
+cancelButtons.forEach(btn =>
+  btn.addEventListener("click", () => cerrarModal(btn.closest(".modal")))
+);
 
-    originalData = {
-        nombre: nombreCompleto.split(' ')[0],
-        apellido: nombreCompleto.split(' ')[1] || '',
-        foto: fotoSrc
-    };
-
-    document.getElementById('infoNombre').value = originalData.nombre;
-    document.getElementById('infoApellido').value = originalData.apellido;
-    document.getElementById('infoFoto').src = originalData.foto;
-
-    Array.from(infoForm.elements).forEach(el => {
-        if(el.tagName !== 'BUTTON') el.disabled = true;
-    });
-
-    infoButtons.style.display = 'flex';
-    guardarButtons.style.display = 'none';
-}
-
-// Abrir modal información
-document.querySelectorAll('.info-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        currentCard = btn.closest('.cliente-card');
-        llenarFormulario(currentCard);
-        infoModal.style.display = 'flex';
-    });
+// ======================== TABLA: MINI MENU ========================
+tablaClientes.addEventListener("click", (e) => {
+  if (e.target.classList.contains("menu-btn")) {
+    filaSeleccionada = e.target.closest("tr");
+    const rect = e.target.getBoundingClientRect();
+    miniMenu.style.top = `${rect.bottom + window.scrollY}px`;
+    miniMenu.style.left = `${rect.left + window.scrollX}px`;
+    miniMenu.style.display = "flex";
+  }
 });
 
-// Cerrar modal info
-cerrarModal('#infoModal', '#cancelarInfoBtn', infoClose);
-
-// Función editar: muestra botón guardar
-editarBtn.addEventListener('click', () => {
-    Array.from(infoForm.elements).forEach(el => {
-        if(el.tagName !== 'BUTTON') el.disabled = false;
-    });
-    infoButtons.style.display = 'none';
-    guardarButtons.style.display = 'flex';
+// Cerrar mini menú si clic afuera
+window.addEventListener("click", (e) => {
+  if (!miniMenu.contains(e.target) && !e.target.classList.contains("menu-btn")) {
+    miniMenu.style.display = "none";
+  }
 });
 
-// Cambio de foto
-const infoFoto = document.getElementById('infoFoto');
-const infoFotoInput = document.getElementById('infoFotoInput');
-infoFoto.addEventListener('click', () => infoFotoInput.click());
-infoFotoInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if(file){
-        const reader = new FileReader();
-        reader.onload = function(event){
-            infoFoto.src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
+// ======================== ACCIONES MINI MENÚ ========================
+miniEditar.addEventListener("click", () => {
+  if (filaSeleccionada) abrirModal(editClienteModal);
+  miniMenu.style.display = "none";
 });
 
-// ======================= MODAL LOGOUT =======================
-cerrarModal('#logoutModal', '#cancelarLogout');
+miniEliminar.addEventListener("click", () => {
+  if (filaSeleccionada) abrirModal(confirmarEliminarModal);
+  miniMenu.style.display = "none";
+});
+
+// ======================== CONFIRMAR ELIMINAR ========================
+document.getElementById("aceptarEliminar").addEventListener("click", () => {
+  if (filaSeleccionada) filaSeleccionada.remove();
+  cerrarModal(confirmarEliminarModal);
+});
+
+// ======================== BOTÓN AGREGAR CLIENTE ========================
+document.querySelector(".custom-button").addEventListener("click", () => {
+  abrirModal(addClienteModal);
+});
